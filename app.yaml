@@ -7,9 +7,9 @@ threadsafe: true
 
 handlers:
 -   url: /stylesheets
-    static_dir: guestbook/static/stylesheets
+    static_dir: static/stylesheets
 
--   url: /guestbook
+-   url: /.*
     script: main.application
 
 

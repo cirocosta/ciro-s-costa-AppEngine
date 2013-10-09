@@ -17,7 +17,8 @@ DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
 class MainPage(webapp2.RequestHandler):
     def get(self):
         self.response.write('<html><body>')
-        guestbook_name = self.request.get('guestbook_name',DEFAULT_GUESTBOOK_NAME)
+        guestbook_name = self.request.get('guestbook_name',\
+            DEFAULT_GUESTBOOK_NAME)
 
         greetings_query = Greeting.query(
             ancestor=guestbook_key(guestbook_name)).order(-Greeting.date)
