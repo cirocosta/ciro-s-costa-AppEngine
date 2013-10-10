@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Presentation</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- basic slide -->
+<div class="row botoes_de_acao" style="widht:500px; margin:auto">
+	<div class="col-md-8" style="position:absolute, top:0px; left:15%">
+		<div class="row">
+			<div class="col-md-4"><button class="btn btn-default" id="botao_anterior">ANTERIOR</button></div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4"><button class="btn btn-default" id="botao_proximo">PRÓXIMO</button></div>
+		</div>
+	</div>
+</div>
+
+<div class="row" id="slide_number_0">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h1> slide 1 </h1>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<div class="row" id="slide_number_1">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h1> slide 2 </h1>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<div class="row" id="slide_number_2">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h1> slide 3 </h1>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		var $btn_anterior = $('#botao_anterior');
+		var $btn_proximo = $('#botao_proximo');
+
+		var selecionado = 0;
+		var maximo = 3;
+
+		$('#slide_number_1').hide();
+		$('#slide_number_2').hide();
+
+		$btn_proximo.click(function(){
+			$('#slide_number_' + selecionado).hide();
+			console.log("clicado");
+			selecionado += 1;
+			if(selecionado < maximo){
+				$('#slide_number_' + selecionado).show();
+			}
+		});
+
+		$btn_anterior.click(function(){
+			$('#slide_number_' + selecionado).hide();
+			selecionado -= 1;
+			if(selecionado >= 0){
+				$('#slide_number_' + selecionado).show();
+			}
+		});
+
+	});
+</script>
+
+</body>
+</html>
